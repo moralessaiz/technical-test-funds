@@ -10,6 +10,8 @@ La aplicación se encuentra desplegada en AWS S3:
 
 🔗 http://technical-test-cristhian-morales.s3-website.us-east-2.amazonaws.com/
 
+---
+
 ## 🧩 Tecnologías utilizadas
 
 - Angular 17+
