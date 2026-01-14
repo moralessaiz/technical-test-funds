@@ -1,0 +1,12 @@
+@use './variables' as v;
+
+body {
+    background-color: v.$bg-dark;
+    color: v.$text-primary;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    margin: 0;
+}
+
+main {
+    padding: 2rem;
+}

@@ -1,0 +1,44 @@
+<div *ngIf="fund as f; else loading" class="card-static">
+
+    <h2>Suscribirse a {{ fund.name }}</h2>
+
+    <p class="text-muted">
+        Saldo disponible:
+        {{ (balance$ | async) | currency:'COP' }}
+    </p>
+    
+    <form [formGroup]="form" (ngSubmit)="submit()" class="form">
+
+        <div class="form-group">
+            <label>Monto</label>
+            <input type="number" formControlName="amount" />
+        </div>
+        
+
+        <div
+            *ngIf="form.get('amount')?.errors?.['min']"
+            class="error-text">
+            El monto mínimo es {{ fund.minimumAmount | currency : "COP" }}
+        </div>
+
+        <div class="form-group">
+            <label>Notificación</label>
+            <select formControlName="notification">
+                <option value="Email">Email</option>
+                <option value="SMS">SMS</option>
+            </select>
+        </div>
+
+        <div *ngIf="errorMessage" class="error-text">
+            {{ errorMessage }}
+        </div>
+
+        <button type="submit" class="button" [disabled]="form.invalid">
+            Confirmar
+        </button>
+    </form>
+</div>
+
+<ng-template #loading>
+    <p class="text-muted">Cargando información del fondo...</p>
+</ng-template>

@@ -1,0 +1,32 @@
+<div *ngIf="fund as f; else loading" class="detail-container">
+    <div class="card detail-card">
+        <header class="detail-header">
+            <h2>{{ fund.name }}</h2>
+            <strong class="badge">{{ fund.category }}</strong>
+        </header>
+
+        <section class="detail-info">
+            <p>
+                <strong>Monto mínimo:</strong>{{ fund.minimumAmount | currency:'COP' }}
+            </p>
+        </section>
+
+        <section>
+            <a 
+                class="btn btn-primary"
+                [routerLink]="['/funds', fund.id, 'subscribe']">
+                Suscribirse
+            </a>
+            <button
+                class="btn btn-secondary"
+                (click)="cancelar()"
+            >
+                Cancelar Suscripción
+            </button>
+        </section>
+    </div>
+</div>
+
+<ng-template #loading>
+    <p class="text-muted">Cargando información del fondo...</p>
+</ng-template>

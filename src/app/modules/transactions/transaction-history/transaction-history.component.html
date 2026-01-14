@@ -1,0 +1,36 @@
+<app-loading-spinner 
+    *ngIf="loading$ | async"
+    message="">
+</app-loading-spinner>
+
+<ng-container *ngIf="!(loading$ | async)" >
+    <h2>Historial de transacciones</h2>
+
+    <div *ngIf="(transactions$ | async)?.length === 0" class="text-muted">
+        No existen transacciones registradas.
+    </div>
+    
+    <div *ngIf="(transactions$ | async)?.length">
+        <div
+            class="card transaction-card"
+            *ngFor="let transacc of transactions$ | async"
+        >
+            <div class="transaction-header">
+                <div class="transaction-type">
+                    {{ transacc.type | transactionType }}
+                </div>
+                <span class="transaction-date">
+                    {{ transacc.date | date:'short' }}
+                </span>
+            </div>
+            <h3>{{ transacc.fundName }}</h3>
+            <p>
+                <strong>Monto:</strong>
+                {{ transacc.amount | currency:'COP' }}
+            </p>
+            <p class="text-muted">
+                Notificación: {{ transacc.notificationWay }}
+            </p>
+        </div>
+    </div>
+</ng-container>

@@ -1,0 +1,23 @@
+<app-loading-spinner 
+    *ngIf="loading$ | async"
+    message="">
+</app-loading-spinner>
+
+<ng-container *ngIf="!(loading$ | async)">
+    <h2>Fondos disponibles</h2>
+
+    <p><strong>Saldo disponible:</strong> {{ balance$ | async | currency:'COP' }}</p>
+
+    <div class="card-grid">
+        <div *ngFor="let fund of funds$ | async" class="card">
+        <h3>{{ fund.name }}</h3>
+        <p>Monto mínimo:  {{ fund.minimumAmount | currency:'COP'}}</p>
+        <span>{{ fund.category }}</span>
+        
+        <br>
+        <a [routerLink]="['/funds', fund.id]">Ver detalle</a>
+        </div>
+    </div>
+
+    
+</ng-container>

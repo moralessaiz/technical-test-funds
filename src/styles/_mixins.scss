@@ -1,0 +1,39 @@
+@use './variables' as v;
+
+@mixin base-card {
+    background-color: v.$card-bg;
+    border-radius: v.$radius;
+    padding: 1.2rem;
+    box-shadow: v.$shadow;
+}
+
+@mixin card-new{
+
+    background-color: v.$card-bg;
+    border-radius: v.$radius;
+    padding: 1.2rem;
+    box-shadow: v.$shadow;
+    transition: v.$transition;
+    cursor: pointer;
+
+    &:hover {
+        transform: scale(1.05);
+        z-index: 2;
+    }
+}
+
+@mixin interactive-card {
+    @include base-card();
+
+    transition: v.$transition;
+    cursor: pointer;
+    
+    &:hover {
+        transform: scale(1.05);
+        z-index: 2;
+    };
+}
+
+@mixin static-card {
+    @include base-card();
+}

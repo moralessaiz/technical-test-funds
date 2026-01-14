@@ -1,0 +1,37 @@
+@use './variables' as v;
+
+.detail-container {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.detail-card {
+    max-width: 500px;
+    width: 100%;
+}
+
+.detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.badge {
+    padding: 0.3rem 0.7rem;
+    border-radius: v.$radius;
+    background-color: v.$accent;
+    color: v.$text-primary;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.detail-info {
+    margin-bottom: 1.5rem;
+}
+
+.detail-actions {
+    display: flex;
+    gap: 1rem;
+}

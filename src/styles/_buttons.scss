@@ -1,0 +1,54 @@
+@use './variables' as v;
+
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 160px;
+    padding: 0.6rem 1rem;
+
+    border-radius: v.$radius;
+    border: none;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+
+    text-align: center;
+
+    &:hover {
+        transform: translateY(-1px);
+    }
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+}
+
+.btn-primary {
+    background-color: v.$accent;
+    color: v.$text-primary;
+
+    &:hover {
+        background-color: darken(v.$accent, 8%);
+        color: v.$text-primary;
+    }
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: v.$text-secondary;
+    border: 1px solid v.$text-secondary;
+
+    &:hover {
+        color: v.$text-primary;
+        border-color: v.$text-primary;
+    }
+}
